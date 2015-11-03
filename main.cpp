@@ -21,13 +21,11 @@ void push(int val)
 int pop()
 {
 	int ret;
-	size_t len;
 	if(st1.size() == 0)
 	{
 		throw "stack underflow";
 	}
-	len = st1.size();
-	for(size_t i = 0; i < len; ++i)
+	for(size_t i = st1.size(); i > 0; --i)
 	{
 		st2.push( st1.top() );
 		st1.pop();
@@ -35,8 +33,7 @@ int pop()
 	ret = st2.top();
 	st2.pop();
 
-	len = st2.size();
-	for(size_t i = 0; i < len; ++i)
+	for(size_t i = st2.size(); i > 0; --i)
 	{
 		st1.push( st2.top() );
 		st2.pop();
